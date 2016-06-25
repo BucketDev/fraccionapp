@@ -35,7 +35,7 @@ $config['base_url'] = 'http://localhost/git/fraccionapp';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -213,7 +213,7 @@ $config['directory_trigger'] = 'd';
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 0;
+$config['log_threshold'] = 2;
 
 /*
 |--------------------------------------------------------------------------
@@ -369,11 +369,11 @@ $config['encryption_key'] = 'RPLJyGrq2JjxdvsMpmxPsryuUDL46iki';
 */
 $config['sess_driver'] = 'database';
 $config['sess_cookie_name'] = 'fa_session';
-$config['sess_expiration'] = 60*60;
+$config['sess_expiration'] = 60*60*24*365;
 $config['sess_save_path'] = 'fraccionapp_sessions';
 $config['sess_match_ip'] = FALSE;
-$config['sess_time_to_update'] = 300;
-$config['sess_regenerate_destroy'] = FALSE;
+$config['sess_time_to_update'] = 60*5;
+$config['sess_regenerate_destroy'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------

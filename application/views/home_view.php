@@ -13,6 +13,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <h1>{{salute}}</h1>
 
     <p>Bienvenido a FraccionApp.</p>
+    <form action="home/signOut">
+        <input type="submit" value="Logout">
+    </form>
 </div>
 
 <script src="assets/vendor/angular.js"></script>

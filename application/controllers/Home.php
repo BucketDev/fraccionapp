@@ -1,15 +1,15 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-/**
- * Created by PhpStorm.
- * User: rodrigo
- * Date: 09/06/16
- * Time: 11:06 PM
- */
-class Home extends CI_Controller
+class Home extends FA_Controller
 {
-    public function index() {
+    public function index()
+    {
         $this->load->view('home_view');
+    }
+
+    public function signOut()
+    {
+        $this->session->sess_destroy();
+        redirect('login', 'show', 302);
     }
 }
