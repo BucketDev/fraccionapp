@@ -1,0 +1,38 @@
+@import 'https://fonts.googleapis.com/css?family=Asul|Open+Sans';
+html, body{
+    height: 100%;
+    font-family: 'Asul', sans-serif;
+}
+
+body {
+    background: url(../img/wall/login2.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+}
+
+form.login-container {
+    opacity: 0;
+    padding: 20px;
+    width: 320px;
+    height: 400px;
+
+    position: absolute;
+    top: 0%;
+    left: 50%;
+
+    margin: -300px 0 0 -160px;
+
+    background-color: #ecf0f1;
+    border-radius: 15px;
+
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
+}
+
+form > img {
+    margin-bottom: 20px;
+}

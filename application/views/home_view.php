@@ -7,18 +7,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta charset="utf-8">
     <title>FraccionApp Login</title>
 </head>
-<body ng-app="fraccionApp">
+<body ng-app="faLogin">
 
-<div id="container" ng-controller="MainCtrl">
-    <h1>{{salute}}</h1>
+    <div id="container" ng-controller="LoginCtrl">
+        <h1>{{salute}}</h1>
 
-    <p>Bienvenido a FraccionApp.</p>
-    <form action="home/signOut">
-        <input type="submit" value="Logout">
-    </form>
-</div>
+        <p>Bienvenido a FraccionApp.</p>
+        <form action="home/signOut">
+            <input type="submit" value="Logout">
+        </form>
+    </div>
 
-<script src="assets/vendor/angular.js"></script>
-<script src="assets/js/app/fraccionApp.js"></script>
+    <script src="assets/vendor/js/angular.js"></script>
+    <script src="assets/js/app/fraccionApp.js"></script>
 </body>
 </html>

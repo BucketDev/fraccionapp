@@ -20,7 +20,7 @@ class Login extends CI_Controller
     public function signIn()
     {
         $newdata = array(
-            'email'     => 'johndoe@some-site.com',
+            'email'     => $this->input->post('email'),
             'logged_in' => TRUE
         );
 
