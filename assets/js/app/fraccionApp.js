@@ -3,14 +3,26 @@
  */
 "use strict";
 angular.module('faLogin', [])
-    .controller('LoginCtrl', function ($scope) {
+    .controller('LoginCtrl', function ($scope, $http) {
         $scope.lbEmail = 'Correo';
         $scope.lbPassword = 'Contraseña';
         $scope.lbSignin = 'Ingresar';
         
         $scope.email = 'rloyolaj@gmail.com';
         $scope.password = 'robalon';
-        $scope.salute = 'Hola Mundo';
+        
+        $scope.signin = function () {
+            var data = {
+                email: $scope.email,
+                password: $scope.password
+            };
+            $http.post("login/signIn", data).then(function (response) {
+                location.reload();
+            }, function (response) {
+                console.log('error');
+                console.log(response);
+            });
+        }
     });
 
 $("form").velocity({

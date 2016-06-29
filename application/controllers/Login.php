@@ -19,12 +19,12 @@ class Login extends CI_Controller
 
     public function signIn()
     {
+        $data = json_decode(file_get_contents('php://input'));
         $newdata = array(
-            'email'     => $this->input->post('email'),
+            'email'     => $data->email,
             'logged_in' => TRUE
         );
 
         $this->session->set_userdata($newdata);
-        redirect('home', 'show', 302);
     }
 }

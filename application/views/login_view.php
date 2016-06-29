@@ -12,17 +12,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body ng-app="faLogin">
 
     <div ng-controller="LoginCtrl">
-        <form class="login-container" action="login/signIn" method="post">
+        <form class="login-container">
             <img src="http://placehold.it/280x120">
             <div class="form-group">
                 <label for="email">{{lbEmail}}</label>
-                <input class="form-control" type="email" name="email" ng-model="email">
+                <input class="form-control" type="email" name="email" ng-model="email" required>
             </div>
             <div class="form-group">
                 <label for="password">{{lbPassword}}</label>
-                <input class="form-control" type="password" name="password" ng-model="password">
+                <input class="form-control" type="password" name="password" ng-model="password" required>
             </div>
-            <button class="btn btn-default" type="submit">{{lbSignin}}</button>
+            <button class="btn btn-default" type="submit" ng-click="signin()">{{lbSignin}}</button>
         </form>
     </div>
     <script src="assets/vendor/js/angular.min.js"></script>
