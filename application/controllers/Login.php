@@ -20,11 +20,18 @@ class Login extends CI_Controller
     public function signIn()
     {
         $data = json_decode(file_get_contents('php://input'));
-        $newdata = array(
-            'email'     => $data->email,
-            'logged_in' => TRUE
-        );
+        if($data->email === 'rloyolaj@gmail.com'){
+            $newdata = array(
+                'email'     => $data->email,
+                'logged_in' => TRUE
+            );
 
-        $this->session->set_userdata($newdata);
+            $this->session->set_userdata($newdata);
+        } else {
+            $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode(array('msg' => 'Error en las credenciales')))
+                ->set_status_header(400);
+        }
     }
 }

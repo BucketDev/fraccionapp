@@ -17,11 +17,11 @@ angular.module('faLogin', [])
                 email: $scope.email,
                 password: $scope.password
             };
-            $http.post("login/signIn", data).then(function (response) {
+            $http.post("login/signIn", data).then(function () {
                 location.reload();
             }, function (response) {
                 console.log('error');
-                console.log(response);
+                console.log(response.data.msg);
             });
         }
     });
