@@ -12,6 +12,7 @@ angular.module('faLogin', [])
         $scope.password = 'robalon';
         
         $scope.signin = function () {
+            
             var data = {
                 email: $scope.email,
                 password: $scope.password
