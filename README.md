@@ -13,5 +13,5 @@ El proyecto está desarrollado en 3 tecnologías principales:
 ## Version 0.1.0 Ioga
 Esta versión no es una versión comercializable y solo contiene la estructura de las carpetas de los frameworks de PHP/CodeIgniter y AngularJS
 
-## Version 0.1.0 Ioga
+## Version 0.1.1 Shiryu
 Sigue siendo una vesion no comercializable, pero ahora tiene las configuraciones necesarias para manejo de sesiones con base de datos, ya fue desplegada en bucketdev.com/development/fraccionapp y tiene un pequeño login con un solo usuario y contraseña.
