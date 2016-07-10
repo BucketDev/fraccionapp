@@ -94,3 +94,25 @@ $db['development'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+$db['production'] = array(
+	'dsn'	=> '',
+	'hostname' => 'tallereslalibelula.com.mx',
+	'username' => 'fraccionapp',
+	'password' => 'pE1Txh4e8n5n',
+	'database' => 'fraccionapp',
+	'dbdriver' => 'mysqli',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => (ENVIRONMENT !== 'production'),
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);

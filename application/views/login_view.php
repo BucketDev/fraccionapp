@@ -28,11 +28,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="assets/vendor/js/angular.min.js"></script>
     <script src="assets/vendor/js/jquery.min.js"></script>
     <script src="assets/vendor/js/velocity.min.js"></script>
-
     <?php
     if (ENVIRONMENT === 'development') {
         echo '<script src="assets/js/app/fraccionApp.js"></script>';
     } else {
+        echo '<script src="assets/js/app/fraccionApp.js"></script>';
     }
     ?>
 
