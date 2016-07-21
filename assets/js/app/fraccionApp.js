@@ -8,9 +8,6 @@ angular.module('faLogin', [])
         $scope.lbPassword = 'Contraseña';
         $scope.lbSignin = 'Ingresar';
         
-        $scope.email = 'rloyolaj@gmail.com';
-        $scope.password = 'robalon';
-        
         $scope.signin = function () {
             
             var data = {
@@ -20,8 +17,7 @@ angular.module('faLogin', [])
             $http.post("login/signIn", data).then(function () {
                 location.reload();
             }, function (response) {
-                console.log('error');
-                console.log(response.data.msg);
+                $scope.userError = 'has-error';
             });
         }
     });
