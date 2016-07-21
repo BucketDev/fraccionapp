@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div ng-controller="LoginCtrl">
         <form class="login-container">
             <img src="http://placehold.it/280x120">
-            <div class="form-group">
+            <div class="form-group" ng-class="userError">
                 <label for="email">{{lbEmail}}</label>
                 <input class="form-control" type="email" name="email" ng-model="email" required>
             </div>
