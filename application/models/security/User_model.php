@@ -1,4 +1,4 @@
-<?php
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * Created by PhpStorm.
@@ -16,8 +16,9 @@ class User_model extends FA_Model
 
     public function getByUser($user, $status = NULL) {
 		$this->db
-			->select('email, password')
+			->select('users.id, email, password, idRole, controller')
 			->from($this->table)
+			->join('roles', "roles.id = {$this->table}.idRole")
 			->where(array('email' => $user));
 		if(!empty($status)){
 			$this->db->where(array('status'));

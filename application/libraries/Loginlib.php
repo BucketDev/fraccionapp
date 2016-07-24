@@ -3,9 +3,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Loginlib
 {
+
+    protected $CI;
+
+    // We'll use a constructor, as you can't directly call a function
+    // from a property definition.
+    public function __construct()
+    {
+            // Assign the CodeIgniter super-object
+            $this->CI =& get_instance();
+    }
+
+	
     public function isLoggedIn()
     {
-        $CI =& get_instance();
-        return !empty($CI->session->email);
+        return !empty($this->CI->session->email);
+    }
+
+    public function getController()
+    {
+    	log_message('error', $this->CI->session->email);
+    	return $this->CI->session->controller;
     }
 }

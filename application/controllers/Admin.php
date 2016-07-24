@@ -1,10 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends FA_Controller
+class Admin extends FA_Controller
 {
     public function index()
     {
-        $this->load->view('home_view');
+        $this->load->view('admin_view');
     }
 
     public function signOut()
