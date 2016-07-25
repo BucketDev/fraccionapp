@@ -19,7 +19,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 
     <script src="assets/vendor/js/angular.js"></script>
-    <script src="assets/js/app/fraccionApp.js"></script>
     <?php
     if (ENVIRONMENT === 'development') {
         echo '<script src="assets/js/app/fraccionApp.js"></script>';

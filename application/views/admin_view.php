@@ -5,26 +5,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>FraccionApp Login</title>
+    <title>FraccionApp Admin</title>
+    <link rel="stylesheet" href="assets/vendor/css/bootstrap.min.css">
 </head>
-<body ng-app="faLogin">
+<body ng-app="faAdmin">
+    <div ng-controller="AdminCtrl">
+        
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
 
-    <div id="container" ng-controller="LoginCtrl">
-        <h1>Admin</h1>
+                <a class="navbar-brand" href="#">
+                    <img src="assets/img/icons/fraccionapp30.png">
+                </a>
 
-        <p>Bienvenido a FraccionApp Admin.</p>
-        <form action="admin/signOut">
-            <input type="submit" value="Logout">
-        </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <button type="button" class="btn btn-danger navbar-btn" ng-click="signOut()">Log Out</button>
+                </ul>
+            </div>
+        </nav>
+    
+        <div class="container-fluid">
+             <ng-view></ng-view>
+        </div>
+
     </div>
 
     <script src="assets/vendor/js/angular.js"></script>
-    <script src="assets/js/app/fraccionApp.js"></script>
     <?php
     if (ENVIRONMENT === 'development') {
-        echo '<script src="assets/js/app/fraccionApp.js"></script>';
+        echo '<script src="assets/js/app/main/adminCtrl.js"></script>';
     } else {
-        echo '<script src="assets/js/app/fraccionApp.js"></script>';
+        echo '<script src="assets/js/app/main/adminCtrl.js"></script>';
     }
     ?>
 </body>

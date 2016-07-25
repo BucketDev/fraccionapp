@@ -13,7 +13,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <div ng-controller="LoginCtrl">
         <form class="login-container">
-            <img src="http://placehold.it/280x120">
+            <div class="brand-img">
+                <img src="assets/img/icons/fraccionApp100.png" class="img-thumbnail">
+            </div>
             <div class="form-group" ng-class="userError">
                 <label for="email">{{lbEmail}}</label>
                 <input class="form-control" type="email" name="email" ng-model="email" required>
@@ -30,9 +32,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="assets/vendor/js/velocity.min.js"></script>
     <?php
     if (ENVIRONMENT === 'development') {
-        echo '<script src="assets/js/app/fraccionApp.js"></script>';
+        echo '<script src="assets/js/app/login.js"></script>';
     } else {
-        echo '<script src="assets/js/app/fraccionApp.js"></script>';
+        echo '<script src="assets/js/app/login.js"></script>';
     }
     ?>
 

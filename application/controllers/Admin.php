@@ -10,6 +10,5 @@ class Admin extends FA_Controller
     public function signOut()
     {
         $this->session->sess_destroy();
-        redirect('login', 'show', 302);
     }
 }

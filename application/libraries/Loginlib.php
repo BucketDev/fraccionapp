@@ -14,7 +14,7 @@ class Loginlib
             $this->CI =& get_instance();
     }
 
-	
+
     public function isLoggedIn()
     {
         return !empty($this->CI->session->email);
@@ -22,7 +22,6 @@ class Loginlib
 
     public function getController()
     {
-    	log_message('error', $this->CI->session->email);
     	return $this->CI->session->controller;
     }
 }
