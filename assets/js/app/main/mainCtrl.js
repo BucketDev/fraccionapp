@@ -24,7 +24,7 @@ angular.module('faAdmin', [
         templateUrl: 'assets/partials/adminView.html'
     });
 })
-.controller('AdminCtrl', function ($scope, $http)
+.controller('MainCtrl', function ($scope, $http)
     {
         $scope.signOut = function() {
             $http.post("admin/signOut").then(function () {
@@ -34,4 +34,23 @@ angular.module('faAdmin', [
             });
         }
     }
-);
+)
+.controller('AdminCtrl', function ($scope, adminModulesSrv)
+    {
+        $scope.modules = [];
+        adminModulesSrv.getModules().then(
+            function successCallback(response) {
+                $scope.modules = response.data;
+            }, function errorCallback(response) {
+                console.log('error');
+            }
+        );
+    }
+)
+.service('adminModulesSrv', function($http){
+    return {
+        getModules: function(idModule) {
+            return $http.post("admin/getModules");
+        }
+    };
+});

@@ -6,13 +6,8 @@
  * Date: 11/07/2016
  * Time: 08:57 PM
  */
-class User_Model extends FA_Model
+class Admin_Model extends FA_Model
 {
-
-    public function __construct()
-    {
-        parent::withTable('users');
-    }
 
     public function getByUser($user, $status = NULL) {
 		$this->db
@@ -24,6 +19,13 @@ class User_Model extends FA_Model
 			$this->db->where(array('status'));
 		}
 		return $this->db->get()->row();
+    }
+
+    public function getModules($idModule) {
+    	$this->db
+    		->select('id, name, idModule, iconClass, controller')
+    		->from('modules');
+		return $this->db->get()->result();
     }
 
 }
