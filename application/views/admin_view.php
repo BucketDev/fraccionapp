@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body ng-app="faAdmin">
 
-    <div ng-controller="AdminCtrl">
+    <div ng-controller="MainCtrl">
         
         <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     if (ENVIRONMENT === 'development') {
         echo '<script src="assets/vendor/js/angular.js"></script>';
         echo '<script src="assets/vendor/js/angular-route.js"></script>';
-        echo '<script src="assets/js/app/main/adminCtrl.js"></script>';
+        echo '<script src="assets/js/app/main/mainCtrl.js"></script>';
         echo '<script src="assets/js/app/main/security/usersCtrl.js"></script>';
         echo '<script src="assets/js/app/main/security/loginRequestsCtrl.js"></script>';
     } else {
