@@ -2,7 +2,10 @@
  * Created by Rodrigo on 21/07/2016.
  */
 angular.module('faAdmin', [
-    'ngRoute'
+    'ngAnimate',
+    'ngRoute',
+    'mgcrea.ngStrap.modal',
+    'mgcrea.ngStrap.aside'
     ])
 .config(function($routeProvider) {
     
@@ -20,11 +23,11 @@ angular.module('faAdmin', [
         }
     })
     .otherwise({
-        controller: 'AdminCtrl',
-        templateUrl: 'assets/partials/adminView.html'
+        controller: 'MainCtrl',
+        templateUrl: 'assets/partials/admin/adminView.html'
     });
 })
-.controller('MainCtrl', function ($scope, $http)
+.controller('AdminCtrl', function ($scope, $http, $aside, adminModulesSrv)
     {
         $scope.signOut = function() {
             $http.post("admin/signOut").then(function () {
@@ -33,20 +36,33 @@ angular.module('faAdmin', [
                 
             });
         }
+        
+        $scope.getModules = function (argument) {
+            $scope.modules = [];
+            adminModulesSrv.getModules().then(
+                function successCallback(response) {
+                    $scope.modules = response.data;
+                    $aside({
+                        controller: 'AdminCtrl',
+                        scope: $scope,
+                        title: 'Modules',
+                        placement: 'left',
+                        backdrop: 'static',
+                        animation: 'am-fade-and-slide-left',
+                        show: true,
+                        templateUrl: 'assets/partials/admin/modules.tpl.html'
+                    });
+                }, function errorCallback(response) {
+                    console.log('error');
+                }
+            );
+        };
+        
     }
 )
-.controller('AdminCtrl', function ($scope, adminModulesSrv)
-    {
-        $scope.modules = [];
-        adminModulesSrv.getModules().then(
-            function successCallback(response) {
-                $scope.modules = response.data;
-            }, function errorCallback(response) {
-                console.log('error');
-            }
-        );
-    }
-)
+.controller('MainCtrl', function ($scope) {
+        
+})
 .service('adminModulesSrv', function($http){
     return {
         getModules: function(idModule) {
