@@ -1,4 +1,4 @@
-<?php
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * Created by PhpStorm.
@@ -6,18 +6,19 @@
  * Date: 11/07/2016
  * Time: 08:57 PM
  */
-class User_model extends FA_Model
+class User_Model extends FA_Model
 {
 
     public function __construct()
     {
-        parent::__construct('users');
+        parent::withTable('users');
     }
 
     public function getByUser($user, $status = NULL) {
 		$this->db
-			->select('email, password')
+			->select('users.id, email, password, idRole, controller')
 			->from($this->table)
+			->join('roles', "roles.id = {$this->table}.idRole")
 			->where(array('email' => $user));
 		if(!empty($status)){
 			$this->db->where(array('status'));

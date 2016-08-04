@@ -8,7 +8,8 @@ class Login extends CI_Controller
         parent::__construct();
 
         if ($this->loginlib->isLoggedIn()) {
-            redirect('home', 'auto', 302);
+            log_message('debug', $this->loginlib->getController());
+            redirect($this->loginlib->getController(), 'auto', 302);
         }
     }
 
@@ -20,32 +21,26 @@ class Login extends CI_Controller
     public function signIn()
     {
         $data = json_decode(file_get_contents('php://input'));
-        $this->load->model('user_model');
+        $this->load->model('security/user_model');
         $user = $this->user_model->getByUser($data->email);
 
         if(!empty($user)){
             if($user->password === $data->password) {
-                $newdata = array(
+                    $newdata = array(
                     'email'     => $user->email,
+                    'idRole'    => $user->idRole,
+                    'controller'=> $user->controller,
+                    'idUser'    => $user->id,
                     'logged_in' => TRUE
                 );
 
                 $this->session->set_userdata($newdata);
-                $this->output
-                    ->set_content_type('application/json')
-                    ->set_output(json_encode(array('msg' => 'ingresar...')))
-                    ->set_status_header(200);
+                $this->msgreturn->msg('signing in...');
             } else {
-                $this->output
-                    ->set_content_type('application/json')
-                    ->set_output(json_encode(array('msg' => 'password dont match...')))
-                    ->set_status_header(404);
+                $this->msgreturn->msg('password does not match...', 404);
             }
         } else {
-            $this->output
-                ->set_content_type('application/json')
-                ->set_output(json_encode(array('msg' => 'not found...')))
-                ->set_status_header(404);
+            $this->msgreturn->msg('user not found...', 404);
         }
     }
 }

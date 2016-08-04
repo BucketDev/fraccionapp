@@ -1,7 +1,7 @@
 @import 'https://fonts.googleapis.com/css?family=Asul|Open+Sans';
 html, body{
     height: 100%;
-    font-family: 'Asul', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 body {
@@ -33,6 +33,11 @@ form.login-container {
     box-shadow: 0 8px 6px -6px black;
 }
 
-form > img {
-    margin-bottom: 20px;
+.brand-img {
+    width: 100px;
+    margin: 0 auto 20px;
+}
+
+.brand-img > img {
+    border-radius: 100px;
 }

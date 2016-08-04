@@ -10,16 +10,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body ng-app="faLogin">
 
     <div id="container" ng-controller="LoginCtrl">
-        <h1>{{salute}}</h1>
+        <h1>Social</h1>
 
-        <p>Bienvenido a FraccionApp.</p>
-        <form action="home/signOut">
+        <p>Bienvenido a FraccionApp Social.</p>
+        <form action="admin/signOut">
             <input type="submit" value="Logout">
         </form>
     </div>
 
     <script src="assets/vendor/js/angular.js"></script>
-    <script src="assets/js/app/fraccionApp.js"></script>
     <?php
     if (ENVIRONMENT === 'development') {
         echo '<script src="assets/js/app/fraccionApp.js"></script>';
