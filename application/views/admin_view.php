@@ -9,6 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="assets/vendor/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/vendor/css/angular-motion.min.css">
     <link rel="stylesheet" href="assets/vendor/css/bootstrap-additions.min.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
 </head>
 <body ng-app="faAdmin">
 
@@ -49,7 +50,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         echo '<script src="assets/vendor/js/angular-route.min.js"></script>';
         echo '<script src="assets/vendor/js/angular-strap.min.js"></script>';
         echo '<script src="assets/vendor/js/angular-strap.tpl.min.js"></script>';
-        echo '<script src="assets/js/app/main/fraccionApp.min.js"></script>';
+        echo '<script src="assets/js/app/main/mainCtrl.js"></script>';
+        echo '<script src="assets/js/app/main/security/usersCtrl.js"></script>';
+        echo '<script src="assets/js/app/main/security/loginRequestsCtrl.js"></script>';
     }
     ?>
 </body>

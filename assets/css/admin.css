@@ -1,0 +1,5 @@
+.module-icon {
+	padding-left: 20px;
+}
+.module-icon.admin-users {background: url("../../assets/img/icons/modules/admin-users16.png") 0 0 no-repeat;}
+.module-icon.admin-security {background: url("../../assets/img/icons/modules/admin-security16.png") 0 0 no-repeat;}

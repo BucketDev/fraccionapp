@@ -6,9 +6,12 @@
         <h4 class="aside-title" ng-bind-html="title">Modules</h4>
       </div>
       <div class="aside-body">
-        <ul ng-repeat="module in modules">
-          <li><a href="{{module.controller}}" ng-click="$hide()">{{module.name}}</a></li>
-        </ul>
+        
+        <div ng-repeat="module in modules">
+          <a href="{{module.controller}}" ng-click="$hide()">
+            <div class="module-icon {{module.iconClass}}">{{module.name}}</div>
+          </a>
+        </div>
 
       </div>
       <div class="aside-footer">

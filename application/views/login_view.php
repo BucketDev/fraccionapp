@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div ng-controller="LoginCtrl">
         <form class="login-container">
             <div class="brand-img">
-                <img src="assets/img/icons/fraccionApp100.png" class="img-thumbnail">
+                <img src="assets/img/icons/fraccionapp100.png" class="img-thumbnail">
             </div>
             <div class="form-group" ng-class="userError">
                 <label for="email">{{lbEmail}}</label>

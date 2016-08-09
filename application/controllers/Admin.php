@@ -7,7 +7,7 @@ class Admin extends FA_Controller
     {
         parent::__construct();
 
-        $this->load->model('admin_model');
+        $this->load->model('Admin_Model', 'admin_model');
     }
 
     public function index()
