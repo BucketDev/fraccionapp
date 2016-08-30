@@ -21,10 +21,13 @@ class Admin_Model extends FA_Model
 		return $this->db->get()->row();
     }
 
-    public function getModules($idModule) {
+    public function getModules($idModule, $idRole) {
     	$this->db
-    		->select('id, name, idModule, iconClass, controller')
-    		->from('modules');
+    		->select('modules.*')
+    		->from('modules')    		
+			->join('actions', 'actions.idModule = modules.id')
+			->join('profiles', 'profiles.idAction = actions.id')
+    		->where(array('profiles.idRole' => $idRole));
 		return $this->db->get()->result();
     }
 

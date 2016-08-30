@@ -21,7 +21,8 @@ class Admin extends FA_Controller
     }
 
     public function getModules($idModule = NULL) {
-    	$modules = $this->admin_model->getModules($idModule);
+        $idRole = $this->loginlib->getIdRole();
+    	$modules = $this->admin_model->getModules($idModule, $idRole);
     	$this->msgreturn->data($modules);
     }
 }

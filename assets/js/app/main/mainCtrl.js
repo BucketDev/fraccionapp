@@ -5,7 +5,8 @@ angular.module('faAdmin', [
     'ngAnimate',
     'ngRoute',
     'mgcrea.ngStrap.modal',
-    'mgcrea.ngStrap.aside'
+    'mgcrea.ngStrap.aside',
+    'ui.grid'
     ])
 .config(function($routeProvider) {
     
@@ -15,11 +16,19 @@ angular.module('faAdmin', [
 
     $routeProvider
     .when("/:module/:controller", {
-        templateUrl:function(params) {
+        templateUrl: function(params) {
             return 'assets/partials/' + params.module + '/' + params.controller + 'View.html';
         },
         controller: function($scope, $routeParams, $controller) {
             $controller($routeParams.controller.capitalize() + "Ctrl", {$scope:$scope});
+        },
+        resolve: {
+            check: function(adminModulesSrv, $route, $location){   //function to be resolved, accessFac and $location Injected
+                if(adminModulesSrv.validate($route.current.params.controller)){    //check if the user has permission -- This happens before the page loads                    
+                } else {
+                    $location.path('/');                //redirect user to home if it does not have permission.
+                }
+            }
         }
     })
     .otherwise({
@@ -37,25 +46,33 @@ angular.module('faAdmin', [
             });
         }
         
-        $scope.getModules = function (argument) {
-            $scope.modules = [];
-            adminModulesSrv.getModules().then(
-                function successCallback(response) {
-                    $scope.modules = response.data;
-                    $aside({
-                        controller: 'AdminCtrl',
-                        scope: $scope,
-                        title: 'Modules',
-                        placement: 'left',
-                        backdrop: 'static',
-                        animation: 'am-fade-and-slide-left',
-                        show: true,
-                        templateUrl: 'assets/partials/admin/modules.tpl.html'
-                    });
-                }, function errorCallback(response) {
-                    console.log('error');
-                }
-            );
+        $scope.showModules = function () {
+            var asideOptions = {
+                controller: 'AdminCtrl',
+                scope: $scope,
+                title: 'Modules',
+                placement: 'left',
+                backdrop: 'static',
+                animation: 'am-fade-and-slide-left',
+                show: true,
+                templateUrl: 'assets/partials/admin/modules.tpl.html'
+            };
+
+            if(adminModulesSrv.hasModues()){
+                $scope.modules = adminModulesSrv.get();
+                $aside(asideOptions);
+            } else {
+                adminModulesSrv.obtain().then(
+                    function successCallback(response) {
+                        $scope.modules = response.data;
+                        adminModulesSrv.set($scope.modules);
+                        $aside(asideOptions);
+                    }, function errorCallback(response) {
+                        console.log('error');
+                    }
+                );
+            }
+            
         };
         
     }
@@ -64,9 +81,28 @@ angular.module('faAdmin', [
         
 })
 .service('adminModulesSrv', function($http){
+    var modules;
     return {
-        getModules: function(idModule) {
+        hasModues: function() {
+            return modules !== undefined;
+        },
+        get: function() {
+            return modules;
+        },
+        set: function(_modules) {
+            modules = _modules;
+        },
+        obtain: function(idModule) {
             return $http.post("admin/getModules");
+        },
+        validate: function(controller) {
+            if(this.hasModues()){
+                var moduleFound = modules.find(function(module) {
+                    return module.controller === controller;
+                });
+                return moduleFound !== undefined;
+            }
+            return false;
         }
     };
 });

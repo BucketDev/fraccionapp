@@ -15,3 +15,6 @@ Esta versión no es una versión comercializable y solo contiene la estructura d
 
 ## Version 0.1.1 Shiryu
 Sigue siendo una vesion no comercializable, pero ahora tiene las configuraciones necesarias para manejo de sesiones con base de datos, ya fue desplegada en bucketdev.com/development/fraccionapp y tiene un pequeño login con un solo usuario y contraseña.
+
+## Version 0.1.2 Shun
+Sigue siendo una vesion no comercializable, Se tiene un correcto uso de los moduos dinámicos, además de presentar el primer módulo de Usuarios, y listarlos

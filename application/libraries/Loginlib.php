@@ -24,4 +24,8 @@ class Loginlib
     {
     	return $this->CI->session->controller;
     }
+
+    public function getIdRole() {
+        return $this->CI->session->idRole;
+    }
 }

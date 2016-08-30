@@ -30,4 +30,11 @@ class FA_Model extends CI_Model
 
     }
 
+    public function findAll()
+    {
+        $result = $this->db->query("SELECT * FROM {$this->table}");
+        return $result->result();
+
+    }
+
 }

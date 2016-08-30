@@ -8,7 +8,7 @@
       <div class="aside-body">
         
         <div ng-repeat="module in modules">
-          <a href="{{module.controller}}" ng-click="$hide()">
+          <a href="{{module.routeController}}" ng-click="$hide()">
             <div class="module-icon {{module.iconClass}}">{{module.name}}</div>
           </a>
         </div>
