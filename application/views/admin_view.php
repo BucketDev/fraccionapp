@@ -53,6 +53,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         echo '<script src="assets/vendor/js/angular-route.min.js"></script>';
         echo '<script src="assets/vendor/js/angular-strap.min.js"></script>';
         echo '<script src="assets/vendor/js/angular-strap.tpl.min.js"></script>';
+        echo '<script src="assets/vendor/js/ui-grid.min.js"></script>';
+        
         echo '<script src="assets/js/app/main/mainCtrl.js"></script>';
         echo '<script src="assets/js/app/main/security/usersCtrl.js"></script>';
         echo '<script src="assets/js/app/main/security/loginRequestsCtrl.js"></script>';

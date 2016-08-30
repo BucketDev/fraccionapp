@@ -23,6 +23,7 @@ class User_Model extends FA_Model
 		if(!empty($status)){
 			$this->db->where(array('status'));
 		}
+		
 		return $this->db->get()->row();
     }
 
