@@ -12,7 +12,7 @@ class User extends FA_Controller
 
     public function index()
     {
-        $users = $this->user_model->findAll();
+        $users = $this->user_model->getAllWithRole();
         $this->msgreturn->data($users);
     }
 }

@@ -27,4 +27,13 @@ class User_Model extends FA_Model
 		return $this->db->get()->row();
     }
 
+    public function getAllWithRole() {
+    	$this->db
+			->select('users.id, email, password, idRole, roles.name AS role, roles.controller')
+			->from($this->table)
+			->join('roles', "roles.id = {$this->table}.idRole");
+		
+		return $this->db->get()->result();
+    }
+
 }

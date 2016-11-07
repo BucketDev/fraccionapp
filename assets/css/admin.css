@@ -1,5 +1,15 @@
+body { padding-bottom: 70px; }
 .module-icon {
 	padding-left: 20px;
 }
-.module-icon.admin-users {background: url("../../assets/img/icons/modules/admin-users16.png") 0 0 no-repeat;}
-.module-icon.admin-security {background: url("../../assets/img/icons/modules/admin-security16.png") 0 0 no-repeat;}
+.module-icon30 {
+	padding-left: 40px;
+}
+h3.navbar-text {
+	margin-bottom: 7px;
+	color: #7f8c8d;
+}
+.module-icon.security-users 	{background: url("../../assets/img/icons/modules/security-users16.png") 0 0 no-repeat;}
+.module-icon30.security-users	{background: url("../../assets/img/icons/modules/security-users30.png") 0 0 no-repeat;}
+.module-icon.main-menu			{background: url("../../assets/img/icons/buttons/menu16.png") 0 0 no-repeat;}
+.module-icon.main-logout		{background: url("../../assets/img/icons/buttons/logout16.png") 0 0 no-repeat;}

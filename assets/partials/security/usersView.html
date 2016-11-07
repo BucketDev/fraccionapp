@@ -1,5 +1,10 @@
 <div class="container">
-	<h1>Users</h1>
-		<div ui-grid="users" class="grid"></div>
-	</ul>
+	<div class="table-responsive">
+		<table class="table table-condensed table-bordered table-hover table-striped">
+			<tr ng-repeat="(key, value) in users">
+				<td>{{value.id}}</td>
+				<td>{{value.email}}</td>
+			</tr>
+		</table>
+	</div>
 </div>

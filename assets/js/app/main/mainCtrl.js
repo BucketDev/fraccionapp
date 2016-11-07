@@ -5,8 +5,7 @@ angular.module('faAdmin', [
     'ngAnimate',
     'ngRoute',
     'mgcrea.ngStrap.modal',
-    'mgcrea.ngStrap.aside',
-    'ui.grid'
+    'mgcrea.ngStrap.aside'
     ])
 .config(function($routeProvider) {
     
@@ -32,11 +31,11 @@ angular.module('faAdmin', [
         }
     })
     .otherwise({
-        controller: 'MainCtrl',
+        controller: 'DefaultCtrl',
         templateUrl: 'assets/partials/admin/adminView.html'
     });
 })
-.controller('AdminCtrl', function ($scope, $http, $aside, adminModulesSrv)
+.controller('MainCtrl', function ($rootScope, $scope, $http, $aside, adminModulesSrv)
     {
         $scope.signOut = function() {
             $http.post("admin/signOut").then(function () {
@@ -46,9 +45,14 @@ angular.module('faAdmin', [
             });
         }
         
+        $rootScope.$on('updateTitle', function(event, data) {
+            $scope.moduleName = data.title;
+            $scope.moduleIconClass = data.iconClass;
+        });
+        
         $scope.showModules = function () {
             var asideOptions = {
-                controller: 'AdminCtrl',
+                controller: 'MainCtrl',
                 scope: $scope,
                 title: 'Modules',
                 placement: 'left',
@@ -77,10 +81,10 @@ angular.module('faAdmin', [
         
     }
 )
-.controller('MainCtrl', function ($scope) {
+.controller('DefaultCtrl', function ($scope) {
         
 })
-.service('adminModulesSrv', function($http){
+.service('adminModulesSrv', function($http, $rootScope){
     var modules;
     return {
         hasModues: function() {
@@ -94,6 +98,12 @@ angular.module('faAdmin', [
         },
         obtain: function(idModule) {
             return $http.post("admin/getModules");
+        },
+        updateTitle: function(data) {
+            $rootScope.$emit('updateTitle', {
+                title: data.title,
+                iconClass: data.iconClass
+            });
         },
         validate: function(controller) {
             if(this.hasModues()){
